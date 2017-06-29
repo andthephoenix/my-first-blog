@@ -1,25 +1,26 @@
 <html>
 <head>
        <title>Yandere Teddy Bear Blog</title>
+       <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+       <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
    </head>
-    <p>Hi! I'm a Yandere Teddy Bear.</p>
-    <p>Welcome to my blog!</p>
 
     <body>
+    <h1>  <p>Hi! I'm a Yandere Teddy Bear.</p><h1>
         <div>
-            <h1><a href="">Yandere Teddy Bear Blog</a></h1>
-        </div>
 
-        <div>
-            <p>published: 6.28.2017, 13:40</p>
-            <h2><a href="">My first post</a></h2>
-            <p>Cute and crazy are the blogs themes.</p>
-        </div>
+      <h2><p>Welcome to my blog!</p> </h2>
 
-        <div>
-            <p>published: 6.28.2017, 13:40</p>
-            <h2><a href="">My second post</a></h2>
-            <p>I love plushies, cute things, stickers, animals, sweets, books, and shows.</p>
-        </div>
+{{ posts }}
+
+</div>
+
+{% for post in posts %}
+    <div>
+        <p>published: {{ post.published_date }}</p>
+        <h1><a href="">{{ post.title }}</a></h1>
+        <p>{{ post.text|linebreaksbr }}</p>
+    </div>
+{% endfor %}
     </body>
 </html>
